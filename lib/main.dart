@@ -150,6 +150,7 @@ class _MyHomePageState extends State<MyHomePage>
     ];
     return Scaffold(
       appBar: (_currentIndex == 4 || _currentIndex == 2) ? null : AppBar(
+        backgroundColor: Colors.black,
         // brightness: Brightness.dark,
         // elevation: 0.5,
         // backgroundColor: Colors.transparent,
