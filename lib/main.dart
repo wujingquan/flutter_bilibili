@@ -78,9 +78,8 @@ class _MyHomePageState extends State<MyHomePage>
     var appBars = [
       AppNaviBar(),
       VideoAppBar(),
-      DynamicsAppBar(),
+      DynamicsAppBar(), // Unused when index 2 (appBar hidden; body is DynamicsAppBar)
       VipAppBarWidget(),
-//      null,
       PersonAppBar(),
     ];
     var appbodys = [
@@ -150,7 +149,7 @@ class _MyHomePageState extends State<MyHomePage>
       PersonBodyWidget(),
     ];
     return Scaffold(
-      appBar: _currentIndex == 4 ? null : AppBar(
+      appBar: (_currentIndex == 4 || _currentIndex == 2) ? null : AppBar(
         // brightness: Brightness.dark,
         // elevation: 0.5,
         // backgroundColor: Colors.transparent,
