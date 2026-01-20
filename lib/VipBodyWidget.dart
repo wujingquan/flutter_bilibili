@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 class VipBodyWidget extends StatefulWidget {
   @override
@@ -8,7 +8,7 @@ class VipBodyWidget extends StatefulWidget {
 
 class _VipBodyWidgetState extends State<VipBodyWidget>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
 
   @override
   void initState() {
@@ -58,7 +58,7 @@ class _VipBodyWidgetState extends State<VipBodyWidget>
 
   _tabBar() {
     var titles = ['推荐', '商品', '情报', '美图'];
-    var bars = new List<Widget>();
+    var bars = <Widget>[];
     for (int i = 0; i < titles.length; i++) {
       bars.add(
         new Tab(
@@ -86,7 +86,7 @@ class _VipBodyWidgetState extends State<VipBodyWidget>
       '【欧美混剪】一个视频感受2019奥斯卡高分获奖电影',
     ];
 
-    var items = new List<Widget>();
+    var items = <Widget>[];
     for (int i = 0; i < titles.length; i++) {
       items.add(Container(
         child: Column(
@@ -226,7 +226,7 @@ class _VipBodyWidgetState extends State<VipBodyWidget>
   }
 
   _items() {
-    var items = new List<ListView>();
+    var items = <ListView>[];
     for (int i = 0; i < 4; i++) {
       items.add(_listView());
     }
@@ -254,7 +254,7 @@ class _VipBodyWidgetState extends State<VipBodyWidget>
       '全部分类',
     ];
 
-    var widgets = new List<Widget>();
+    var widgets = <Widget>[];
     for (int i = 0; i < iconImages.length; i++) {
       widgets.add(Container(
         width: 67,
@@ -341,7 +341,7 @@ class _VipBodyWidgetState extends State<VipBodyWidget>
         size: 20,
       ),
     ];
-    var rows = new List<Widget>();
+    var rows = <Widget>[];
     for (int i = 0; i < icons.length; i++) {
       rows.add(Container(
         padding: EdgeInsets.only(left: 3.0),
@@ -415,8 +415,8 @@ class _VipBodyWidgetState extends State<VipBodyWidget>
               activeColor: Colors.red,
             )),
         control: new SwiperControl(
-          iconNext: null,
-          iconPrevious: null,
+          iconNext: Icons.navigate_next,
+          iconPrevious: Icons.navigate_before,
         ),
         scrollDirection: Axis.horizontal,
         autoplay: true,

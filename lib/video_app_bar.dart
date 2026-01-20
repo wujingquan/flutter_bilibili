@@ -7,7 +7,7 @@ class VideoAppBar extends StatefulWidget {
 
 class _VideoAppBarState extends State<VideoAppBar>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -54,8 +54,10 @@ class _VideoAppBarState extends State<VideoAppBar>
                 )
               ],
             ),
-            FlatButton(
-              materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            TextButton(
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.zero,
+              ),
               onPressed: () {
                 Navigator.pushNamed(context, "DetailPage");
               },

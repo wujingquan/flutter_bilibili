@@ -58,7 +58,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
   var _currentIndex = 0;
 
   @override
@@ -144,13 +144,14 @@ class _MyHomePageState extends State<MyHomePage>
         controller: _tabController,
       ),
       MyVideoPlayer(),
-      DynamicsAppBar().createState().body,
+      // DynamicsAppBar().createState().body,
+      DynamicsAppBar(),
       VipBodyWidget(),
       PersonBodyWidget(),
     ];
     return Scaffold(
-      appBar:_currentIndex==4?null:AppBar(
-        brightness: Brightness.dark,
+      appBar: _currentIndex == 4 ? null : AppBar(
+        // brightness: Brightness.dark,
         // elevation: 0.5,
         // backgroundColor: Colors.transparent,
         title: appBars[_currentIndex],
@@ -169,34 +170,38 @@ class _MyHomePageState extends State<MyHomePage>
                 Icons.home,
                 // color: selectColor,
               ),
-              title: Text(
+              label:
                 '首页',
                 // style: TextStyle(color: themeColor),
-              )),
+              ),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.audiotrack,
                 // color:themeColor,
               ),
-              title: Text('频道', )),
+              label: '频道',
+              ),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.cloud,
                 // color: themeColor,
               ),
-              title: Text('动态', )),
+              label: '动态',
+              ),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.shopping_cart,
                 // color: themeColor,
               ),
-              title: Text('会员购',)),
+              label: '会员购',
+              ),
           BottomNavigationBarItem(
               icon: Icon(
                 Icons.person,
                 // color: themeColor,
               ),
-              title: Text('我的')),
+              label: '我的',
+              ),
         ],
 //        fixedColor: Colors.red,
         type: BottomNavigationBarType.fixed,

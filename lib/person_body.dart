@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'post.dart';
 
 class PersonBodyWidget extends StatefulWidget {
   @override
@@ -8,11 +7,11 @@ class PersonBodyWidget extends StatefulWidget {
 
 class _PersonBodyWidgetState extends State<PersonBodyWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   _topBars() {
     var titles = ['动态', '关注', '粉丝'];
-    var columes = new List<Widget>();
+    var columes = <Widget>[];
     for (int i = 0; i < titles.length; i++) {
       columes.add(Container(
         margin: EdgeInsets.symmetric(horizontal: i == 1 ? 30 : 0),
@@ -121,7 +120,7 @@ class _PersonBodyWidgetState extends State<PersonBodyWidget>
       gridDelegate: new SliverGridDelegateWithMaxCrossAxisExtent(
         //SliverGridDelegateWithFixedCrossAxisCount可以直接指定每行（列）显示多少个Item   SliverGridDelegateWithMaxCrossAxisExtent会根据GridView的宽度和你设置的每个的宽度来自动计算没行显示多少个Item
         //横轴的最大长度
-        maxCrossAxisExtent: MediaQuery.of(context).size.width/4.0,
+        maxCrossAxisExtent: (MediaQuery.of(context).size.width / 4.0).clamp(80.0, double.infinity),
         //主轴间隔
         mainAxisSpacing: 0.0,
         //横轴间隔
@@ -232,7 +231,7 @@ class _PersonBodyWidgetState extends State<PersonBodyWidget>
 
   _topMsgs() {
     return Container(
-      color: Colors.pink.withOpacity(0.1),
+      color: Colors.pink.withAlpha(10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -398,8 +397,8 @@ class _PersonBodyWidgetState extends State<PersonBodyWidget>
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this);
     super.initState();
+    _controller = AnimationController(vsync: this);
   }
 
   @override

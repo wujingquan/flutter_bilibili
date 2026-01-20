@@ -6,12 +6,12 @@ class AppNaviBar extends StatefulWidget {
 }
 
 class _AppNaviBarState extends State<AppNaviBar> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this);
     super.initState();
+    _controller = AnimationController(vsync: this);
   }
 
   @override
@@ -22,78 +22,71 @@ class _AppNaviBarState extends State<AppNaviBar> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          ClipRRect(
-            borderRadius: BorderRadius.all(Radius.circular(20.0)),
-            child: Image.network('https://img4.duitang.com/uploads/item/201404/19/20140419213843_CYkKk.thumb.700_0.jpeg',width: 40,height: 40,),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          child: Image.network(
+            'https://i0.hdslb.com/bfs/bangumi/8d9f5b4a566d0547bc2e3f6f733b732a09c0d3d4.jpg@80w_80h.jpg',
+            width: 40,
+            height: 40,
+            fit: BoxFit.cover,
+            errorBuilder: (_, __, ___) => Icon(Icons.person, color: Colors.white70, size: 40),
           ),
-          Padding(
-            padding: EdgeInsets.only(left: 20),
+        ),
+        Expanded(
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 12),
             child: ClipRRect(
-              borderRadius:BorderRadius.all(Radius.circular(20.0)),
-              child:Container(
-//                  alignment: Alignment(-1, 0),
-//                  margin: EdgeInsets.only(left: 20.0),
-                width: 180.0,
+              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              child: Container(
                 height: 40.0,
                 color: Colors.white30,
-                child: Padding(
-                  padding: EdgeInsets.only(left: 10),
-                  child:Row(
-                    children: <Widget>[
-                      Icon(Icons.search,color: Colors.white30,size: 30,),
-                      Padding(
-                        padding: EdgeInsets.only(top: 0.0),
-                        child: Container(
-//                              color: Colors.yellow,
-                          width: 120.0,
-                          height: 30.0,
-                          child: TextField(
-                            style: TextStyle(
-                              decorationColor: Colors.red,
-                              color: Colors.white,
-                            ),
-                            keyboardType: TextInputType.number,
-                            decoration: InputDecoration(
-                              fillColor: Colors.white30,
-                              border: InputBorder.none,  //去掉下划线
-                              prefixStyle: TextStyle(color: Colors.white),
-                              contentPadding: EdgeInsets.only(top:5.0),
-//                              hintText: '请输入手机号',
-                              hintStyle: TextStyle(color: Colors.white),
-                            ), autofocus: false, ),
-                        ) ,
+                padding: EdgeInsets.only(left: 10),
+                child: Row(
+                  children: <Widget>[
+                    Icon(Icons.search, color: Colors.white30, size: 24),
+                    Expanded(
+                      child: TextField(
+                        style: TextStyle(decorationColor: Colors.red, color: Colors.white),
+                        keyboardType: TextInputType.number,
+                        decoration: InputDecoration(
+                          fillColor: Colors.white30,
+                          border: InputBorder.none,
+                          prefixStyle: TextStyle(color: Colors.white),
+                          contentPadding: EdgeInsets.only(top: 8.0),
+                          hintStyle: TextStyle(color: Colors.white),
+                          isDense: true,
+                        ),
+                        autofocus: false,
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
-            ),),
-          Container(
-//                color: Colors.black,
-            height: 40,
-            child:  Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Icon(Icons.share,color: Colors.white70,),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(left: 20),
-                  child: Icon(Icons.settings,color: Colors.white70,),
-                ),
-              ],
             ),
           ),
-
-        ],
-      ),
+        ),
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(Icons.share, color: Colors.white70, size: 22),
+              onPressed: () {},
+              padding: EdgeInsets.zero,
+              constraints: BoxConstraints(minWidth: 36, minHeight: 36),
+            ),
+            IconButton(
+              icon: Icon(Icons.settings, color: Colors.white70, size: 22),
+              onPressed: () {},
+              padding: EdgeInsets.zero,
+              constraints: BoxConstraints(minWidth: 36, minHeight: 36),
+            ),
+          ],
+        ),
+      ],
     );
   }
 }

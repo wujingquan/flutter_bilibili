@@ -7,7 +7,7 @@ class VipAppBarWidget extends StatefulWidget {
 
 class _VipAppBarWidgetState extends State<VipAppBarWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

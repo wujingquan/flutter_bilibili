@@ -1,34 +1,30 @@
 PODS:
   - Flutter (1.0.0)
-  - flutter_statusbarcolor (0.0.1):
+  - video_player_avfoundation (0.0.1):
     - Flutter
-  - flutter_webview_plugin (0.0.1):
+    - FlutterMacOS
+  - webview_flutter_wkwebview (0.0.1):
     - Flutter
-  - video_player (0.0.1):
-    - Flutter
+    - FlutterMacOS
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios`)
-  - flutter_statusbarcolor (from `.symlinks/plugins/flutter_statusbarcolor/ios`)
-  - flutter_webview_plugin (from `.symlinks/plugins/flutter_webview_plugin/ios`)
-  - video_player (from `.symlinks/plugins/video_player/ios`)
+  - Flutter (from `Flutter`)
+  - video_player_avfoundation (from `.symlinks/plugins/video_player_avfoundation/darwin`)
+  - webview_flutter_wkwebview (from `.symlinks/plugins/webview_flutter_wkwebview/darwin`)
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios"
-  flutter_statusbarcolor:
-    :path: ".symlinks/plugins/flutter_statusbarcolor/ios"
-  flutter_webview_plugin:
-    :path: ".symlinks/plugins/flutter_webview_plugin/ios"
-  video_player:
-    :path: ".symlinks/plugins/video_player/ios"
+    :path: Flutter
+  video_player_avfoundation:
+    :path: ".symlinks/plugins/video_player_avfoundation/darwin"
+  webview_flutter_wkwebview:
+    :path: ".symlinks/plugins/webview_flutter_wkwebview/darwin"
 
 SPEC CHECKSUMS:
-  Flutter: 9d0fac939486c9aba2809b7982dfdbb47a7b0296
-  flutter_statusbarcolor: ccc8f90efe5e571f817aaed60dac5382d2cec98d
-  flutter_webview_plugin: 116575b48572029304775b768e9f15ebfc316274
-  video_player: 906796a841943c8d370ac7c13b18039aa9b56498
+  Flutter: cabc95a1d2626b1b06e7179b784ebcf0c0cde467
+  video_player_avfoundation: dd410b52df6d2466a42d28550e33e4146928280a
+  webview_flutter_wkwebview: 8ebf4fded22593026f7dbff1fbff31ea98573c8d
 
-PODFILE CHECKSUM: aff02bfeed411c636180d6812254b2daeea14d09
+PODFILE CHECKSUM: f3734cf2c64ab93db34ebd0461528389a119c1e8
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.16.2

@@ -7,7 +7,7 @@ class HomeHotWidget extends StatefulWidget {
 
 class _HomeHotWidgetState extends State<HomeHotWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

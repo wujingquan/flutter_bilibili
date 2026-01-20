@@ -8,12 +8,12 @@ class HomeZhuiFanWidget extends StatefulWidget {
 
 class _HomeZhuiFanWidgetState extends State<HomeZhuiFanWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this);
     super.initState();
+    _controller = AnimationController(vsync: this);
   }
 
   @override
@@ -39,28 +39,34 @@ class _HomeZhuiFanWidgetState extends State<HomeZhuiFanWidget>
 
     return Container(
       padding: EdgeInsets.all(3),
-      child: new StaggeredGridView.countBuilder(
-          crossAxisCount: 4,
-          itemCount: 20,
-          itemBuilder: (BuildContext context, int index) => new Container(
+      child: StaggeredGrid.count(
+        crossAxisCount: 4,
+        mainAxisSpacing: 2.0,
+        crossAxisSpacing: 2.0,
+        children: [
+          for (var i = 0; i < 20; i++)
+            StaggeredGridTile.count(
+              crossAxisCellCount: 2,
+              mainAxisCellCount: i.isEven ? 2 : 1.5,
+              child: Container(
                 alignment: Alignment.center,
                 child: Stack(
                   children: <Widget>[
                     ClipRRect(
-                        borderRadius: BorderRadius.all(Radius.circular(3)),
-                        child: Image.network(
-                          images[index % 10],
-                          fit: BoxFit.cover,
-                          height: 180,
-                          width: (MediaQuery.of(context).size.width - 12) / 2.0,
-                        )),
+                      borderRadius: BorderRadius.all(Radius.circular(3)),
+                      child: Image.network(
+                        images[i % 10],
+                        fit: BoxFit.cover,
+                        height: 180,
+                        width: (MediaQuery.of(context).size.width - 12) / 2.0,
+                      ),
+                    ),
                   ],
                 ),
               ),
-          staggeredTileBuilder: (int index) =>
-              new StaggeredTile.count(2, index.isEven ? 2 : 1.5),
-          mainAxisSpacing: 2.0,
-          crossAxisSpacing: 2.0),
+            ),
+        ],
+      ),
     );
   }
 }

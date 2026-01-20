@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
-import 'my_gradview.dart';
+import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 class MySwiperPics extends StatefulWidget {
   @override
@@ -9,7 +8,7 @@ class MySwiperPics extends StatefulWidget {
 
 class _MySwiperPicsState extends State<MySwiperPics>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -96,8 +95,8 @@ class _MySwiperPicsState extends State<MySwiperPics>
                           activeColor: Colors.red,
                         )),
                     control: new SwiperControl(
-                      iconNext: null,
-                      iconPrevious: null,
+                      iconNext: Icons.navigate_next,
+                      iconPrevious: Icons.navigate_before,
                     ),
                     scrollDirection: Axis.horizontal,
                     autoplay: true,

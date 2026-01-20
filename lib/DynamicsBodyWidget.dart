@@ -8,12 +8,12 @@ class DynamicsBodyWidget extends StatefulWidget {
 
 class _DynamicsBodyWidgetState extends State<DynamicsBodyWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
-    _controller = AnimationController(vsync: this);
     super.initState();
+    _controller = AnimationController(vsync: this);
   }
 
   @override
@@ -129,13 +129,18 @@ class _DynamicsBodyWidgetState extends State<DynamicsBodyWidget>
                 ),
                 Container(
                   padding: EdgeInsets.all(10),
+                  height: 200,
                   color: Colors.white,
                   child: Stack(
                     children: <Widget>[
                       ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(6.0)),
                         child: Image.network(
-                            videoImages[Random().nextInt(6)%5]),
+                          videoImages[Random().nextInt(6) % 5],
+                          fit: BoxFit.cover,
+                          width: double.infinity,
+                          height: double.infinity,
+                        ),
                       ),
                       Positioned(
                         bottom: 5.0,

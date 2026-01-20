@@ -6,7 +6,7 @@ class PersonAppBar extends StatefulWidget {
 }
 
 class _PersonAppBarState extends State<PersonAppBar> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {

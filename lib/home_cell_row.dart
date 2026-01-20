@@ -7,7 +7,7 @@ class CellRow extends StatefulWidget {
 }
 
 class _CellRowState extends State<CellRow> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -41,6 +41,6 @@ class _CellRowState extends State<CellRow> with SingleTickerProviderStateMixin {
 
         ),
       ],
-    );;
+    );
   }
 }

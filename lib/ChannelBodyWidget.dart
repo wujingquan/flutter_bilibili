@@ -302,6 +302,8 @@ class _MyVideoPlayerState extends State<MyVideoPlayer>
                 );
               }
             }),
-        onRefresh: () {});
+        onRefresh: () async {
+          return Future.value();
+        });
   }
 }

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+import 'package:webview_flutter/webview_flutter.dart';
 
 class DetailPage extends StatefulWidget {
   @override
@@ -8,12 +8,16 @@ class DetailPage extends StatefulWidget {
 
 class _DetailPageState extends State<DetailPage>
     with SingleTickerProviderStateMixin {
-  TabController _tabController;
+  late TabController _tabController;
+  late final WebViewController _webController;
 
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(vsync: this, length: 3);
+    _tabController = TabController(vsync: this, length: 3);
+    _webController = WebViewController()
+      ..setJavaScriptMode(JavaScriptMode.unrestricted)
+      ..loadRequest(Uri.parse('https://github.com/HuPingKang/flutter_demo'));
   }
 
   @override
@@ -24,18 +28,9 @@ class _DetailPageState extends State<DetailPage>
 
   @override
   Widget build(BuildContext context) {
-    return WebviewScaffold(
-      url: 'https://github.com/HuPingKang/flutter_demo',
-      appBar: AppBar(
-        title: Text('详情'),
-//        actions: <Widget>[
-//          GestureDetector(
-//            onTap: () {
-//            },
-//            child: Image.asset('img/icon_menu_share.png'),
-//          )
-//        ],
-      ),
+    return Scaffold(
+      appBar: AppBar(title: Text('详情')),
+      body: WebViewWidget(controller: _webController),
     );
   }
 }

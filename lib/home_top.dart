@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_swiper_null_safety/flutter_swiper_null_safety.dart';
 
 class HomeTopView extends StatefulWidget {
   @override
@@ -8,7 +8,7 @@ class HomeTopView extends StatefulWidget {
 
 class _HomeTopViewState extends State<HomeTopView>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
   @override
   void initState() {
@@ -129,8 +129,8 @@ class _HomeTopViewState extends State<HomeTopView>
                           activeColor: Colors.red,
                         )),
                     control: new SwiperControl(
-                      iconNext: null,
-                      iconPrevious: null,
+                      iconNext: Icons.navigate_next,
+                      iconPrevious: Icons.navigate_before,
                     ),
                     scrollDirection: Axis.horizontal,
                     autoplay: true,
@@ -158,21 +158,25 @@ class _HomeTopViewState extends State<HomeTopView>
                 ),
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
-                      new Image.network(
+                      Image.network(
                         iconImages[index],
                         width: 75,
-                        height: 44,
+                        height: 42,
                         fit: BoxFit.cover,
                       ),
                       Container(
                         alignment: Alignment.center,
-                        height: 20.0,
+                        height: 18.0,
                         child: Text(
                           contents[index],
                           style: TextStyle(fontSize: 14.0),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.center,
                         ),
                       )
                     ],
